@@ -10,9 +10,9 @@ fi
 echo "更新包管理器源列表..."
 apt update
 
-# 安装curl
-echo "安装curl..."
-apt install -y curl
+# 安装curl和vim
+echo "安装curl和vim..."
+apt install -y curl vim
 
 # 添加管理员用户 aiden 并设置其为 sudo 组成员
 echo "创建用户 aiden..."
