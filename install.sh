@@ -19,9 +19,9 @@ echo "创建用户 aiden..."
 useradd -m -G sudo -s /bin/bash aiden
 echo "用户 aiden 创建完成."
 
-# 设置用户 aiden 的密码（从标准输入中获取密码）
+# 设置用户 aiden 的密码
 echo "设置用户 aiden 的密码..."
-echo "aiden:$1" | chpasswd
+echo "aiden:你的密码" | chpasswd
 
 # 为用户 aiden 创建 .ssh 目录并设置权限
 echo "设置SSH目录和权限..."
