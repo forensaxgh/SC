@@ -101,6 +101,14 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 添加 aiden 用户到 sudoers 文件中
+echo "为用户 aiden 添加无密码 sudo 权限..."
+echo 'aiden ALL=(ALL:ALL) NOPASSWD: ALL' | sudo tee -a /etc/sudoers
+if [ $? -ne 0 ]; then
+  echo "添加 sudo 权限失败"
+  exit 1
+fi
+
 # 禁止其他用户使用密码登录
 echo "配置SSH服务..."
 sed -i 's/^#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
