@@ -6,6 +6,14 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
+# 更新包管理器的源列表
+echo "更新包管理器源列表..."
+apt update
+
+# 安装curl
+echo "安装curl..."
+apt install -y curl
+
 # 添加管理员用户 aiden 并设置其为 sudo 组成员
 echo "创建用户 aiden..."
 useradd -m -G sudo -s /bin/bash aiden
