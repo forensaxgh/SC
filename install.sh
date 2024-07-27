@@ -10,9 +10,18 @@ fi
 echo "更新包管理器源列表..."
 apt update
 
-# 安装curl和vim
-echo "安装curl和vim..."
-apt install -y curl vim
+# 安装curl、vim和openssl
+echo "安装curl、vim和openssl..."
+apt install -y curl vim openssl
+
+# 生成随机密码
+ROOT_PASSWORD=$(openssl rand -base64 16)
+AIDEN_PASSWORD=$(openssl rand -base64 16)
+
+# 输出生成的密码
+echo "生成的密码如下："
+echo "root 用户密码: $ROOT_PASSWORD"
+echo "aiden 用户密码: $AIDEN_PASSWORD"
 
 # 添加管理员用户 aiden 并设置其为 sudo 组成员
 echo "创建用户 aiden..."
@@ -21,7 +30,11 @@ echo "用户 aiden 创建完成."
 
 # 设置用户 aiden 的密码
 echo "设置用户 aiden 的密码..."
-echo "aiden:你的密码" | chpasswd
+echo "aiden:$AIDEN_PASSWORD" | chpasswd
+
+# 设置 root 用户的密码
+echo "设置 root 用户的密码..."
+echo "root:$ROOT_PASSWORD" | chpasswd
 
 # 为用户 aiden 创建 .ssh 目录并设置权限
 echo "设置SSH目录和权限..."
