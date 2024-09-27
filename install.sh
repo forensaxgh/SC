@@ -145,7 +145,7 @@ fi
 
 # 重启SSH服务以应用更改
 echo "重启SSH服务..."
-systemctl restart sshd
+systemctl restart ssh
 if [ $? -ne 0 ]; then
   echo "重启SSH服务失败"
   exit 1
