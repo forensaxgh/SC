@@ -137,7 +137,7 @@ fi
 
 # 注释掉 Include /etc/ssh/sshd_config.d/*.conf 行
 echo "注释掉 Include /etc/ssh/sshd_config.d/*.conf 行..."
-sed -i '/^Include \/etc\/ssh\/sshd_config\.d\/*.conf/s/^/#/' /etc/ssh/sshd_config
+sed -i '/^Include \/etc\/ssh\/sshd_config\.d\/.*\.conf/s/^/#/' /etc/ssh/sshd_config
 if [ $? -ne 0 ]; then
   echo "注释掉 Include 配置失败"
   exit 1
