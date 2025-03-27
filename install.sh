@@ -83,7 +83,7 @@ fi
 
 # 将提供的公钥复制到 authorized_keys 文件中
 echo "设置SSH公钥..."
-echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICM2rLFwQbFpS69dfTl6MYW6bZBCt0ZAlJpRmB5UIb2u generated-by-azure" > /home/aiden/.ssh/authorized_keys
+echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINkRh3LIMCokHdy4ywBZ/qVFbRwJb5FbHRQwgPu3P+Ud generated-by-azure" > /home/aiden/.ssh/authorized_keys
 if [ $? -ne 0 ]; then
   echo "设置 authorized_keys 文件失败"
   exit 1
